@@ -7,7 +7,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * we want to create a Minesweeper game setup.
  *
  * @param {Array<Array>} matrix
- * @return {Array<Array>}
+ * @return {number}
  *
  * @example
  * matrix = [
@@ -23,9 +23,27 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function findBombs(i, j, matrix){
+  let count = 0;
+  for (let y = (i-1); y <= (i+1); y ++){
+    for (let x = (j-1); x <= (j+1); x ++){
+      if (!(x === j && y === i) && x >= 0 && y >= 0 && y < matrix.length && x < matrix[i].length && matrix[y][x]){
+        count += 1;
+      }
+    }
+  }
+  return count;
+}
+function minesweeper(matrix) {
+  let result = []
+  for (let i=0;i<matrix.length; i++){
+    let resultRow = [];
+    for (let j=0; j<matrix[i].length; j++){
+      resultRow.push(findBombs(i, j, matrix))
+    }
+    result.push(resultRow);
+  }
+  return  result;
 }
 
 module.exports = {
