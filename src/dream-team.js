@@ -24,8 +24,6 @@ function createDreamTeam(members) {
     }
   })
   return dreamName.toUpperCase().split('').sort().join('');
-  // throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
 }
 
 module.exports = {

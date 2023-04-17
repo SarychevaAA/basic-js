@@ -39,8 +39,6 @@ function deleteDigit(n) {
     }
   }
   return Number.parseInt(arr.join(''), 10);
-  // throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
 }
 
 module.exports = {
